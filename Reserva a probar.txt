@@ -1,0 +1,8 @@
+cualquier escuela
+cantidad de visitantes: no más de 20
+sede: San Martin
+tipo de visita: Por exposicion
+Seleccion de exposiciones: dos cualquiera de las 3 que se muestran
+fecha: 10/11/2021
+hora: 15:00
+guias: cualquiera
