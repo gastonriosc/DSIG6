@@ -10,6 +10,23 @@ namespace PPAI_V1.Entidades
 {
     class Exposicion
     {
+        private int id;
+
+        public Exposicion(int Id)
+        {
+            id = Id;
+        }
+        public int CalcularDuración()
+        {
+            
+            DetalleExposición detalle = new DetalleExposición();
+            int duración = detalle.CalcularDuración(id);
+
+            return duración;
+        }
+
+        //----------------------------------------------------------------------------------------------
+        //-------------------------------------------------------------------------------
         public static DataTable ObtenerExposXId(int id)
         {
             // busca los datos de la exposicion con id = @id.
@@ -94,5 +111,9 @@ namespace PPAI_V1.Entidades
                 cn.Close();        // cierra la conexion con la BD para liberar recursos
             }
         }
+
+
+
+
     }
 }

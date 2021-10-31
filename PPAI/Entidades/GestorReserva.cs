@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PPAI_V1.Interface;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -28,10 +29,13 @@ namespace PPAI_V1.Entidades
         {
             nuevaReserva.cantVisitantesReserva = cantVisit;
         }
+
         public static void tomarSeleccionSede(int sede)
         {
             nuevaReserva.sedeReserva = sede;
         }
+
+
         public static void tomarSeleccionTipoVisita(int idTipoVis)
         {
             nuevaReserva.tipoVisitaReserva = idTipoVis;
@@ -122,21 +126,24 @@ namespace PPAI_V1.Entidades
         {
             // calcula la duracion estimada de la reserva y lo asigna en la interfaz.
 
-            int duracionAproxDeExpo = 0;                                                                // este contador va a ir sumando las duraciones parciales de cada exposicion de la reserva.
-
-            if (nuevaReserva.tipoVisitaReserva == 1)                                                    // si se eligió tipo de visita completa:
+            //int duracionAproxDeExpo = 0;                                                                // este contador va a ir sumando las duraciones parciales de cada exposicion de la reserva.
+            int duración = 0;
+            if (nuevaReserva.tipoVisitaReserva == 2)                                                    // si se eligió tipo de visita completa:
             {
-                listaExposiciones = GenerarListaIDsExposiciones();                                      // busca todos los ids de las exposiciones vigentes.
+                //listaExposiciones = GenerarListaIDsExposiciones();                                      // busca todos los ids de las exposiciones vigentes.
+                IEstrategiaDuración estrategia = new EstrategiaVisitaPorExposicion();
+                duración = estrategia.CalcularDuraciónEstimada(listaExposiciones);
+                nuevaReserva.duracionReserva = duración;
             }
-            for (int i = 0; i < listaExposiciones.Count; i++)
-            {
-                duracionAproxDeExpo += Acceso_a_Datos.AD_Reserva.BuscarDuracionExposiciones(listaExposiciones[i], nuevaReserva.tipoVisitaReserva);     // obtiene la duracion aprox de cada expo.
-            }
+            //for (int i = 0; i < listaExposiciones.Count; i++)
+            //{
+            //    duracionAproxDeExpo += Acceso_a_Datos.AD_Reserva.BuscarDuracionExposiciones(listaExposiciones[i], nuevaReserva.tipoVisitaReserva);     // obtiene la duracion aprox de cada expo.
+            //}
 
-            int duracion = duracionAproxDeExpo;                                                       
-            nuevaReserva.duracionReserva = duracion;
+            //int duracion = duracionAproxDeExpo;                                                       
+            //nuevaReserva.duracionReserva = duracion;
 
-            return duracion.ToString();
+            return duración.ToString();
         }
 
         public static bool calcularSoprepasoCapMaxVisitantes(int duracion, int cantMaxSede)

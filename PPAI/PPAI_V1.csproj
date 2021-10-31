@@ -49,8 +49,11 @@
   <ItemGroup>
     <Compile Include="Acceso a Datos\AD_Reserva.cs" />
     <Compile Include="Entidades\Asignacion.cs" />
+    <Compile Include="Entidades\DetalleExposición.cs" />
     <Compile Include="Entidades\Empleado.cs" />
     <Compile Include="Entidades\Escuela.cs" />
+    <Compile Include="Entidades\EstrategiaVisitaCompleta.cs" />
+    <Compile Include="Entidades\EstrategiaVisitaPorExposicion.cs" />
     <Compile Include="Entidades\Exposicion.cs" />
     <Compile Include="Entidades\GestorReserva.cs" />
     <Compile Include="Entidades\HorarioEmpleado.cs" />
@@ -58,6 +61,7 @@
     <Compile Include="Entidades\PublicoDestino.cs" />
     <Compile Include="Entidades\Reserva.cs" />
     <Compile Include="Entidades\Sede.cs" />
+    <Compile Include="Interface\IEstrategiaDuración.cs" />
     <Compile Include="RegistrarReservaForm.cs">
       <SubType>Form</SubType>
     </Compile>

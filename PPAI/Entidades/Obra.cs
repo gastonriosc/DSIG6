@@ -48,5 +48,36 @@ namespace PPAI_V1.Entidades
                 cn.Close();     // cierra la conexion con la BD para liberar recursos
             }
         }
+
+        public int Duración(int id)
+        {
+            string cadenaConexion = System.Configuration.ConfigurationManager.AppSettings["CadenaBD"];
+            SqlConnection cn = new SqlConnection(cadenaConexion); // establece conexion con la BD.
+
+            string consulta = "SELECT duracion_ext FROM OBRAS WHERE id = @id";
+
+            try
+            {
+                SqlCommand cmd = new SqlCommand();
+
+                cmd.Parameters.Clear();
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.CommandType = CommandType.Text;
+                cmd.CommandText = consulta;
+                cn.Open();
+                cmd.Connection = cn;
+
+                int duración = (int)cmd.ExecuteScalar();
+                return duración;
+            }
+            catch (Exception) // si no se puede establecer la conexion con la BD captura el error en Exception
+            {
+                throw;
+            }
+            finally
+            {
+                cn.Close(); // cierra la conexion con la BD para liberar recursos
+            }
+        }
     }
 }

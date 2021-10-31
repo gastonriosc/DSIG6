@@ -58,3 +58,13 @@ C:\Users\gasto\source\repos\PPAI\obj\Debug\PPAI_V1.csproj.GenerateResource.cache
 C:\Users\gasto\source\repos\PPAI\obj\Debug\PPAI_V1.csproj.CoreCompileInputs.cache
 C:\Users\gasto\source\repos\PPAI\obj\Debug\PPAI_V1.exe
 C:\Users\gasto\source\repos\PPAI\obj\Debug\PPAI_V1.pdb
+C:\Users\micar\source\repos\TRABAJO DSI\DSIG6\PPAI\bin\Debug\PPAI_V1.exe.config
+C:\Users\micar\source\repos\TRABAJO DSI\DSIG6\PPAI\bin\Debug\PPAI_V1.exe
+C:\Users\micar\source\repos\TRABAJO DSI\DSIG6\PPAI\bin\Debug\PPAI_V1.pdb
+C:\Users\micar\source\repos\TRABAJO DSI\DSIG6\PPAI\obj\Debug\PPAI_V1.csproj.AssemblyReference.cache
+C:\Users\micar\source\repos\TRABAJO DSI\DSIG6\PPAI\obj\Debug\PPAI_V1.PantallaAdmReserva.resources
+C:\Users\micar\source\repos\TRABAJO DSI\DSIG6\PPAI\obj\Debug\PPAI_V1.Properties.Resources.resources
+C:\Users\micar\source\repos\TRABAJO DSI\DSIG6\PPAI\obj\Debug\PPAI_V1.csproj.GenerateResource.cache
+C:\Users\micar\source\repos\TRABAJO DSI\DSIG6\PPAI\obj\Debug\PPAI_V1.csproj.CoreCompileInputs.cache
+C:\Users\micar\source\repos\TRABAJO DSI\DSIG6\PPAI\obj\Debug\PPAI_V1.exe
+C:\Users\micar\source\repos\TRABAJO DSI\DSIG6\PPAI\obj\Debug\PPAI_V1.pdb
