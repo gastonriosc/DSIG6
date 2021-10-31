@@ -134,6 +134,7 @@ namespace PPAI_V1.Entidades
                 IEstrategiaDuración estrategia = new EstrategiaVisitaPorExposicion();
                 duración = estrategia.CalcularDuraciónEstimada(listaExposiciones);
                 nuevaReserva.duracionReserva = duración;
+
             }
             //for (int i = 0; i < listaExposiciones.Count; i++)
             //{
