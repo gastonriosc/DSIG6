@@ -173,6 +173,7 @@ namespace PPAI_V1
             txtFechaReserva.Focus();                    // ubica el raton en el casillero de la fecha de reserva.
             cmbSedes.Enabled = false;
 
+
         }
 
 

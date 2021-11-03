@@ -16,7 +16,7 @@ namespace PPAI_V1.Entidades
             {
                 
                 Exposicion ex = new Exposicion(e);
-                duración += ex.CalcularDuración();
+                duración += ex.CalcularDuraciónExtendidaObras();
                 
             }
             return duración;

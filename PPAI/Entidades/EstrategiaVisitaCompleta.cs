@@ -11,7 +11,15 @@ namespace PPAI_V1.Entidades
     {
         public int CalcularDuraciónEstimada(List<int> expo)
         {
-            throw new NotImplementedException();
+            int duración = 0;
+            foreach (int e in expo)
+            {
+
+                Exposicion ex = new Exposicion(e);
+                duración += ex.CalcularDuraciónObrasExpuestas();
+
+            }
+            return duración;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using PPAI_V1.Interface;
+﻿using PPAI_V1.Acceso_a_Datos;
+using PPAI_V1.Interface;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -122,12 +123,13 @@ namespace PPAI_V1.Entidades
             return listaExposDeSede;                                                        // retorna la lista de los ids de las exposiciones.
         }
 
-        public static string calcularDuracionEstimadaReserva(List<int> listaExposiciones)
+        public static string calcularDuracionEstimadaReserva(List<int> listaExposiciones)//,List<int> ListaParaCompleta)
         {
             // calcula la duracion estimada de la reserva y lo asigna en la interfaz.
 
             //int duracionAproxDeExpo = 0;                                                                // este contador va a ir sumando las duraciones parciales de cada exposicion de la reserva.
             int duración = 0;
+            
             if (nuevaReserva.tipoVisitaReserva == 2)                                                    // si se eligió tipo de visita completa:
             {
                 //listaExposiciones = GenerarListaIDsExposiciones();                                      // busca todos los ids de las exposiciones vigentes.
@@ -136,13 +138,27 @@ namespace PPAI_V1.Entidades
                 nuevaReserva.duracionReserva = duración;
 
             }
+            else
+            {
+                List<int> listaExposCompleta = new List<int>();
+                DataTable tablaExpoCompletas = AD_Reserva.ObtenerExpos(nuevaReserva.sedeReserva, 1);
+                for (int i = 0; i< tablaExpoCompletas.Rows.Count; i++)
+                {
+                    
+                    listaExposCompleta.Add(int.Parse(tablaExpoCompletas.Rows[i][0].ToString()));
+                }
+                IEstrategiaDuración estrategiaC = new EstrategiaVisitaCompleta();
+                duración = estrategiaC.CalcularDuraciónEstimada(listaExposCompleta);
+                nuevaReserva.duracionReserva = duración;
+
+
+            }
             //for (int i = 0; i < listaExposiciones.Count; i++)
             //{
             //    duracionAproxDeExpo += Acceso_a_Datos.AD_Reserva.BuscarDuracionExposiciones(listaExposiciones[i], nuevaReserva.tipoVisitaReserva);     // obtiene la duracion aprox de cada expo.
             //}
 
             //int duracion = duracionAproxDeExpo;                                                       
-            //nuevaReserva.duracionReserva = duracion;
 
             return duración.ToString();
         }
